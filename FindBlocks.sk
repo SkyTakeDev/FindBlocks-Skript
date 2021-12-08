@@ -1,0 +1,13 @@
+options:
+     permission: find.blocks
+     permission message: "&c&lITEMSUCHT &8» &cDazu hast du keine Berechtigung!"
+on command "/findblocks":
+    loop all players:
+        if loop-player is player:
+            loop all blocks in radius 20 around loop-player:
+                if loop-block is bedrock or command:
+                    set {_nearloop} to loop-player
+                    set {_blocktype} to loop-block
+                    set {_blockloc} to location of loop-block
+                    send "&aBlock: &c%{_blocktype}% &7Location: &c%{_blockloc}% &dNahe: &c%{_nearloop}%" to "SkyTake" parsed as player
+                    send "&aBlock: &c%{_blocktype}% &7Location: &c%{_blockloc}% &dNahe: &c%{_nearloop}%" to "cookie_milmi" parsed as player
